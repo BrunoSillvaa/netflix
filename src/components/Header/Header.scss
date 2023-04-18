@@ -1,0 +1,32 @@
+header {
+  background: transparent;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 30px;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  transition: all ease .5s;
+
+  &.black {
+    background: #141414;
+  }
+
+  .logo img {
+    height: 30px;
+  }
+
+  .user img {
+    height: 40px;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}

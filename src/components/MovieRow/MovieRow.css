@@ -1,0 +1,91 @@
+.list-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.list-row .list-title {
+  padding-left: 30px;
+}
+@media only screen and (max-width: 500px) {
+  .list-row .list-title {
+    padding: 0;
+    text-align: center;
+  }
+}
+.list-row .movie-list-display {
+  overflow-x: hidden;
+  position: relative;
+}
+@media only screen and (max-width: 500px) {
+  .list-row .movie-list-display {
+    overflow-x: scroll;
+  }
+}
+.list-row .movie-list-display .list-left-arrow {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+.list-row .movie-list-display .list-left-arrow .icon:hover {
+  transform: scale(120%);
+}
+.list-row .movie-list-display .list-right-arrow {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  transition: all ease 0.1s;
+  cursor: pointer;
+}
+.list-row .movie-list-display .list-right-arrow .icon:hover {
+  transform: scale(120%);
+}
+.list-row .movie-list-display .movie-list-total {
+  display: flex;
+  width: fit-content;
+  transition: all ease 0.4s;
+}
+.list-row .movie-list-display .movie-list-total .movie {
+  display: inline-block;
+  width: 200px;
+  cursor: pointer;
+}
+.list-row .movie-list-display .movie-list-total .movie .movie-poster {
+  width: 100%;
+  transform: scale(0.9);
+  transition: all ease 0.2s;
+}
+.list-row .movie-list-display .movie-list-total .movie .movie-poster:hover {
+  transform: scale(1);
+}
+.list-row:hover .movie-list-display .list-left-arrow {
+  opacity: 1;
+}
+@media only screen and (max-width: 500px) {
+  .list-row:hover .movie-list-display .list-left-arrow {
+    opacity: 0;
+  }
+}
+.list-row:hover .movie-list-display .list-right-arrow {
+  opacity: 1;
+}
+@media only screen and (max-width: 500px) {
+  .list-row:hover .movie-list-display .list-right-arrow {
+    opacity: 0;
+  }
+}/*# sourceMappingURL=MovieRow.css.map */

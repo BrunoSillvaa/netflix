@@ -1,0 +1,82 @@
+@mixin responsive($device) {
+  @if $device == mobile {
+      @media only screen and (max-width: 500px) {
+          @content
+      }
+  }
+};
+
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  
+  &.show-modal {
+    display: flex;
+  }
+  
+  .modal {
+    background-color: #111111c7;
+    width: 400px;
+    height: 500px;
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    @include responsive(mobile) {
+      width: 300px;
+      height: 400px;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      border-radius: 50%;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+    
+    h2 {
+      font-size: 40px;
+    }
+
+    input {
+      background-color: none;
+      border: none;
+      font-size: 20px;
+      height: 40px;
+      border-radius: 8px;
+      padding: 12px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      color: white;
+      background-color: #d7232c;
+      height: 40px;
+      border: none;
+      border-radius: 8px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}

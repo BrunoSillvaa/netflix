@@ -1,0 +1,111 @@
+@mixin responsive($device) {
+  @if $device == mobile {
+      @media only screen and (max-width: 500px) {
+          @content
+      }
+  }
+};
+
+.list-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .list-title {
+    padding-left: 30px;
+
+    @include responsive(mobile) {
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  .movie-list-display {
+    overflow-x: hidden;
+    position: relative;
+
+    @include responsive(mobile) {
+      overflow-x: scroll;
+    }
+
+    .list-left-arrow {
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 300px;
+      background: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      transition: all ease 0.3s;
+      cursor: pointer;
+
+      .icon {
+        &:hover {
+          transform: scale(120%);
+        }
+      }
+    }
+
+    .list-right-arrow {
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 300px;
+      background: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      transition: all ease 0.1s;
+      cursor: pointer;
+
+      .icon {
+        &:hover {
+          transform: scale(120%);
+        }
+      }
+    }
+
+    .movie-list-total {
+      display: flex;
+      width: fit-content;
+      transition: all ease 0.4s;
+
+      .movie {
+        display: inline-block;
+        width: 200px;
+        cursor: pointer;
+
+        .movie-poster {
+          width: 100%;
+          transform: scale(0.9);
+          transition: all ease 0.2s;
+
+          &:hover {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+
+  &:hover .movie-list-display .list-left-arrow {
+    opacity: 1;
+
+    @include responsive(mobile) {
+      opacity: 0;
+    }
+  }
+
+  &:hover .movie-list-display .list-right-arrow {
+    opacity: 1;
+
+    @include responsive(mobile) {
+      opacity: 0;
+    }
+  }
+}

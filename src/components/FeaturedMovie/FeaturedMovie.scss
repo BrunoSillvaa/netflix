@@ -1,0 +1,128 @@
+@mixin responsive($device) {
+  @if $device == mobile {
+      @media only screen and (max-width: 500px) {
+          @content
+      }
+  }
+};
+
+.featured {
+  height: calc(100vh - 150px);
+
+  @include responsive(mobile) {
+    height: 70vh;
+  }
+
+  .degrade-x {
+    height: inherit;
+    width: inherit;
+    background: linear-gradient(to right, #111 30%, transparent 70%);
+
+    @include responsive(mobile) {
+      background: none;
+    }
+  }
+
+  .degrade-y {
+    height: inherit;
+    width: inherit;
+    background: linear-gradient(to top, #111 10%, transparent 90%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    padding-left: 30px;
+
+    @include responsive(mobile) {
+      align-items: center;
+      padding: 0 15px;
+      background: linear-gradient(to top, #111 10%, transparent 90%);
+    }
+  }
+
+  .title {
+    font-size: 60px;
+    font-weight: bold;
+
+    @include responsive(mobile) {
+      font-size: 40px;
+    }
+  }
+
+  .infos {
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    gap: 15px;
+
+    .points {
+      color: #46d369;
+    }
+  }
+
+  .description {
+    max-width: 36%;
+    color: #999;
+    font-size: 20px;
+
+    @include responsive(mobile) {
+      font-size: 17px;
+      max-width: 100%;
+      overflow: scroll;
+      max-height: 30vh;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: bold;
+
+    .watch-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      color: #000;
+      padding: 12px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all ease .2s;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &:active {
+        transform: scale(105%);
+      }
+    }
+
+    .list-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #333;
+      color: #fff;
+      padding: 15px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all ease .2s;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &:active {
+        transform: scale(105%);
+      }
+    }
+  }
+
+  .genres {
+    color: #999;
+    font-size: 18px;
+  }
+}
