@@ -1,5 +1,5 @@
-<h1 align='center'>Dashgo .</h1>
-<h2 align='center'>Projeto de dashboard criado durante a trilha React do programa Ignite da <a href='https://www.rocketseat.com.br/'>Rocketseat</a><h2/>
+<h1 align='center'>Netflix</h1>
+<h2 align='center'>Cópia do site da Netflix feita em conjunto com o professor <a href='https://www.youtube.com/@bonieky'>Bonieky</a><h2/>
 <img src='./src/assets/screenshots.png' />
 <h1 align='center'>Tecnologias utilizadas</h1>
 <div align="center" >
