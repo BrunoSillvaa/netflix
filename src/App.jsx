@@ -18,14 +18,15 @@ function App() {
       // Fetching All Movie Lists
       const allLists = await api.getHomeList()
       setMovieList(allLists)
-
+      
       // Choicing The Featured Serie
-      let originals = allLists.filter(film => film.slug === 'originals')
-      let randomChosen = Math.floor(Math.random() * (originals[0].filmList.results.length -1))
-      let movieChosen = originals[0].filmList.results[randomChosen]
+      let trending = allLists.filter(film => film.slug === 'trending')
+      let randomChosen = Math.floor(Math.random() * (trending[0].filmList.results.length -1))
+      let movieChosen = trending[0].filmList.results[randomChosen]
+      console.log(movieChosen)
 
       // Fetching and Seting The Featured Serie
-      let setChochen = await api.getFeatured(movieChosen.id, 'tv')
+      let setChochen = await api.getFeatured(movieChosen.id, 'movie')
       setFeaturedData(setChochen)
     }
 
